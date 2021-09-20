@@ -1,0 +1,11 @@
+import pandas as pd
+
+df=pd.read_csv('Faker_Scripts/data.csv')
+df.head(10)
+
+data={'Name':['Paul','Bob','Susan','Sam'],
+'Age':[23,18,45,27]}
+
+df2 = pd.DataFrame(data)
+df2.to_csv('FromDataFrame.csv', index=False)
+
