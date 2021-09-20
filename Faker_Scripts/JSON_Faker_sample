@@ -1,0 +1,27 @@
+from faker import Faker
+import json
+
+
+output = open('jsonData.JSON', 'w+')
+
+fake = Faker()
+
+#Empty dic for JSON format
+alldata ={}
+#Init empty array for json data
+alldata['records']=[]
+
+#create Data
+for x in range(1000):
+    data={"name":fake.name(),
+        "age":fake.random_int(min=18,max=80,step=1),
+        "street":fake.street_address(),
+        "city":fake.city(),
+        "state":fake.state(),
+        "zip":fake.zipcode(),
+        "lng":float(fake.longitude()),
+        "lat":float(fake.latitude())}
+    alldata['records'].append(data)
+
+#dump to JSON
+json.dump(alldata, output)
